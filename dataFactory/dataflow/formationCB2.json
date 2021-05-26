@@ -1,0 +1,32 @@
+{
+	"name": "formationCB2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Demo2",
+						"type": "DatasetReference"
+					},
+					"name": "demo2"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "AzurePostgreSqlFormCB2",
+						"type": "LinkedServiceReference"
+					},
+					"name": "OUT"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SubPerGender"
+				}
+			],
+			"script": "source(output(\n\t\tartist as string,\n\t\tauth as string,\n\t\tfirstName as string,\n\t\tgender as string,\n\t\titemInSession as short,\n\t\tlastName as string,\n\t\tlength as double,\n\t\tlevel as string,\n\t\tlocation as string,\n\t\tmethod as string,\n\t\tpage as string,\n\t\tregistration as long,\n\t\tsessionId as short,\n\t\tsong as string,\n\t\tstatus as short,\n\t\tts as long,\n\t\tuserId as short\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tmoveFiles: ['data/demo2.json','old'],\n\tdocumentForm: 'documentPerLine') ~> demo2\ndemo2 aggregate(groupBy(gender),\n\tFree = countIf(level == 'free', 0),\n\t\tPaid = countIf(level =='paid', 0)) ~> SubPerGender\nSubPerGender sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'table',\n\ttableName: 'subscription_per_gender',\n\tschemaName: 'public',\n\tdeletable: false,\n\tinsertable: true,\n\tupdateable: false,\n\tupsertable: false,\n\tstore: 'postgres',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> OUT"
+		}
+	}
+}

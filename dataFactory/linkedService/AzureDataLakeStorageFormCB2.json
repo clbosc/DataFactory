@@ -1,0 +1,12 @@
+{
+	"name": "AzureDataLakeStorageFormCB2",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://formationcb2.dfs.core.windows.net",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRGRk9STUFUSU9OQ0IyXzhmODk2NGRiLWMwZDYtNDc1ZS05ZDA3LWQ5ZGU2ZjgzY2U0YSINCn0="
+		}
+	}
+}

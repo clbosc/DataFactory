@@ -1,0 +1,9 @@
+{
+	"name": "DFFormationCB2",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "27b4494f-ceee-468a-bc02-d5fcba756300",
+		"tenantId": "35b49a12-3843-42a7-9af5-f06c0f033da3"
+	}
+}
