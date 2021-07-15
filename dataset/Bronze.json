@@ -2,7 +2,7 @@
 	"name": "Bronze",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureBlobStorage1",
+			"referenceName": "OuEstCharlie",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

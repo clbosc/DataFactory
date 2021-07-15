@@ -3,8 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "BronzeToSilver",
-				"description": "intégration des image du container Bronze dans le Container Silver",
+				"name": "SilverToBronze",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -22,16 +21,10 @@
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
 							"prefix": "ch_",
-							"deleteFilesAfterCompletion": true
+							"deleteFilesAfterCompletion": false
 						},
 						"formatSettings": {
 							"type": "BinaryReadSettings"
-						}
-					},
-					"sink": {
-						"type": "BinarySink",
-						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
 						}
 					},
 					"enableStaging": false
@@ -39,12 +32,6 @@
 				"inputs": [
 					{
 						"referenceName": "Bronze",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "Silver",
 						"type": "DatasetReference"
 					}
 				]
