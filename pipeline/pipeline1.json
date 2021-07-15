@@ -27,6 +27,12 @@
 							"type": "BinaryReadSettings"
 						}
 					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						}
+					},
 					"enableStaging": false
 				},
 				"inputs": [
@@ -34,7 +40,40 @@
 						"referenceName": "Bronze",
 						"type": "DatasetReference"
 					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Silver",
+						"type": "DatasetReference"
+					}
 				]
+			},
+			{
+				"name": "API_Image",
+				"type": "AzureFunctionActivity",
+				"dependsOn": [
+					{
+						"activity": "SilverToBronze",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET"
+				},
+				"linkedServiceName": {
+					"referenceName": "testAPI",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
