@@ -1,5 +1,5 @@
 {
-	"name": "ImageSilver",
+	"name": "ImageForTest",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "cdsformationcbo",
@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "image"
+				"container": "global"
 			}
 		}
 	}

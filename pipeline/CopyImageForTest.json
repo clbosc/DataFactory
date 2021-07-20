@@ -1,9 +1,9 @@
 {
-	"name": "CopyImage",
+	"name": "CopyImageForTest",
 	"properties": {
 		"activities": [
 			{
-				"name": "CopyImage",
+				"name": "CopyImageTest",
 				"description": "Déplace les image dans un container dédié ",
 				"type": "Copy",
 				"dependsOn": [],
@@ -21,7 +21,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"prefix": "istockphoto-",
+							"prefix": "image",
 							"deleteFilesAfterCompletion": false
 						},
 						"formatSettings": {
