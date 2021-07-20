@@ -1,0 +1,9 @@
+{
+	"name": "DFcboFormation",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e498b2c7-30f8-4dc0-836c-43ef2b65ae44",
+		"tenantId": "77da9f7b-d238-41a2-a75a-46c0dee7cf37"
+	}
+}
