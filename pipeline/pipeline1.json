@@ -3,7 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "SilverToBronze",
+				"name": "CopyImage",
+				"description": "Déplace les image dans un container dédié ",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -19,9 +20,7 @@
 						"type": "BinarySource",
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
-							"recursive": true,
-							"prefix": "ch_",
-							"deleteFilesAfterCompletion": false
+							"recursive": true
 						},
 						"formatSettings": {
 							"type": "BinaryReadSettings"
@@ -37,43 +36,16 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Bronze",
+						"referenceName": "ImageBronze",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Silver",
+						"referenceName": "Image",
 						"type": "DatasetReference"
 					}
 				]
-			},
-			{
-				"name": "API_Image",
-				"type": "AzureFunctionActivity",
-				"dependsOn": [
-					{
-						"activity": "SilverToBronze",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"method": "GET"
-				},
-				"linkedServiceName": {
-					"referenceName": "testAPI",
-					"type": "LinkedServiceReference"
-				}
 			}
 		],
 		"annotations": []

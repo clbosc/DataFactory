@@ -1,0 +1,17 @@
+{
+	"name": "Image",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "cdsformationcbo",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "image"
+			}
+		}
+	}
+}
