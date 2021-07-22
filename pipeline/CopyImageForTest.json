@@ -21,7 +21,7 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"prefix": "image",
+							"prefix": "images",
 							"deleteFilesAfterCompletion": false
 						},
 						"formatSettings": {
@@ -44,7 +44,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ImageSilver",
+						"referenceName": "ImageForTest",
 						"type": "DatasetReference"
 					}
 				]
